@@ -1,19 +1,25 @@
 import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
+const Wrapper = ({ children }) => (
+  <div data-testid="score-board">{children}</div>
+);
+
 const Content = ({ emoji, emojiLabel, text }) => (
-  <section aria-label="Score board" className="result">
-    <span className="emoji" role="img" aria-label={emojiLabel}>
-      {emoji}
-    </span>
-    <span className="text">{text}</span>
-  </section>
+  <Wrapper>
+    <section aria-label="Score board" className="result">
+      <span className="emoji" role="img" aria-label={emojiLabel}>
+        {emoji}
+      </span>
+      <span className="text">{text}</span>
+    </section>
+  </Wrapper>
 );
 
 function Result() {
   const { result, loading } = useSelector((state) => state.app, shallowEqual);
 
-  if (result === null && !loading) return null;
+  if (result === null && !loading) return <Wrapper />;
   else if (loading) {
     return (
       <Content

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import { simulatorAction } from "../store/action";
+import { simulatorAction, fetchSimulatorResult } from "../store/action";
 
 function Simulator() {
   const dispatch = useDispatch();
@@ -15,10 +15,19 @@ function Simulator() {
       })
     );
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(
+      fetchSimulatorResult({
+        totalSimulations: simulator.simulations,
+        switchDoor: simulator.switch,
+      })
+    );
+  };
 
   return (
     <section className="simulator">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="simulations">
           Number of simulations
           <input

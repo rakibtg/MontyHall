@@ -1,7 +1,21 @@
 import React from "react";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { simulatorAction } from "../store/action";
 
 function Simulator() {
-  
+  const dispatch = useDispatch();
+  const simulator = useSelector((state) => state.simulator, shallowEqual);
+  const handleInputChage = (event) => {
+    const { name, type } = event.target;
+    const value =
+      type === "checkbox" ? event.target.checked : event.target.value;
+    dispatch(
+      simulatorAction({
+        [name]: value,
+      })
+    );
+  };
+
   return (
     <section className="simulator">
       <form>
@@ -13,6 +27,8 @@ function Simulator() {
             id="simulations"
             name="simulations"
             required
+            value={simulator.simulations}
+            onChange={handleInputChage}
           />
         </label>
         <label htmlFor="door">
@@ -20,6 +36,8 @@ function Simulator() {
             type="checkbox"
             id="door"
             name="switch"
+            value={simulator.switch}
+            onChange={handleInputChage}
           />
           Switch door
         </label>

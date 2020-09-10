@@ -1,6 +1,7 @@
 /**
  * Returns a random number.
  *
+ * @return {number} The random number.
  */
 const random = () => Math.floor(Math.random() * 3);
 

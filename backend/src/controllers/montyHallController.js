@@ -19,8 +19,10 @@ const index = async (req, res) => {
     });
   }
 
+  const winningChances = montyHallSimulator(totalSimulations, switchDoor);
+
   return res.json({
-    data: montyHallSimulator(totalSimulations, switchDoor),
+    data: winningChances,
     success: true,
   });
 };

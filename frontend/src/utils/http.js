@@ -1,10 +1,6 @@
-export const API_PREFIX = "/api";
+export const API_PREFIX = "http://localhost:5500/api";
 
-export const request = async ({
-  method = "get",
-  endpoint = "",
-  payload = {},
-}) => {
+export default async ({ method = "get", endpoint = "", payload = {} }) => {
   const url = `${API_PREFIX}/${endpoint}`;
   const response = await fetch(url, {
     method: method.toUpperCase(),

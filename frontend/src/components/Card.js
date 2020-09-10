@@ -1,5 +1,6 @@
 import React from "react";
 import Simulator from "./Simulator";
+import Result from "./Result";
 
 function Card() {
   return (
@@ -10,6 +11,7 @@ function Card() {
       <section className="card-body">
         <Simulator />
       </section>
+      <Result />
     </section>
   );
 }

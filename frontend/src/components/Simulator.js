@@ -28,7 +28,7 @@ function Simulator() {
 
   return (
     <section className="simulator">
-      <form onSubmit={handleSubmit}>
+      <form data-testid="simulator" onSubmit={handleSubmit}>
         <label htmlFor="simulations">
           Number of simulations
           <input
@@ -39,6 +39,7 @@ function Simulator() {
             required
             value={simulator.simulations}
             onChange={handleInputChage}
+            data-testid="simulations-input"
           />
         </label>
         <label htmlFor="door">
@@ -46,8 +47,9 @@ function Simulator() {
             type="checkbox"
             id="door"
             name="switch"
-            value={simulator.switch}
+            checked={simulator.switch}
             onChange={handleInputChage}
+            data-testid="simulator-switch-door"
           />
           Switch door
         </label>
@@ -57,6 +59,7 @@ function Simulator() {
             disabled={loading}
             type="submit"
             value="Simulate"
+            data-testid="simulator-submit-button"
           />
         </label>
       </form>

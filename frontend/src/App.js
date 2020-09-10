@@ -3,7 +3,7 @@ import Card from "./components/Card";
 
 function App() {
   return (
-    <main className="app">
+    <main data-testid="main" className="app">
       <Card />
     </main>
   );

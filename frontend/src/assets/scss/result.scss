@@ -1,0 +1,12 @@
+section.result {
+  padding-top: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  line-height: 1.8em;
+
+  span.emoji {
+    margin-right: 10px;
+    font-size: 26px;
+  }
+}

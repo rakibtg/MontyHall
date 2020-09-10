@@ -1,7 +1,7 @@
 export default {
   app: {
     loading: false,
-    result: 0,
+    result: null,
   },
   simulator: {
     simulations: 1,

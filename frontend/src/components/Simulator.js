@@ -5,6 +5,7 @@ import { simulatorAction, fetchSimulatorResult } from "../store/action";
 function Simulator() {
   const dispatch = useDispatch();
   const simulator = useSelector((state) => state.simulator, shallowEqual);
+  const { loading } = useSelector((state) => state.app, shallowEqual);
   const handleInputChage = (event) => {
     const { name, type } = event.target;
     const value =
@@ -51,7 +52,12 @@ function Simulator() {
           Switch door
         </label>
         <label htmlFor="submit" aria-label="Start simulator">
-          <input id="submit" type="submit" value="Simulate" />
+          <input
+            id="submit"
+            disabled={loading}
+            type="submit"
+            value="Simulate"
+          />
         </label>
       </form>
     </section>

@@ -11,7 +11,7 @@ const random = () => Math.floor(Math.random() * 3);
  * @param {boolean} switchDoor If user should switch the door or not.
  * @return {boolean} If the user has won a car or not.
  */
-const _montyHallGame = (switchDoor = false) => {
+const montyHallGame = (switchDoor = false) => {
   const doors = [1, 2, 3];
   const guestSelectedDoor = random();
   const prizeDoor = random();
@@ -33,9 +33,9 @@ const _montyHallGame = (switchDoor = false) => {
  * @param {boolean} switchDoor If user should switch the door or not.
  * @return {number} Winning chance
  */
-const _play = (iterations, switchDoor = false) => {
+const play = (iterations, switchDoor = false) => {
   let totalWon = 0;
-  for (let i = 0; i < iterations; i++) _montyHallGame(switchDoor) && totalWon++;
+  for (let i = 0; i < iterations; i++) montyHallGame(switchDoor) && totalWon++;
   const winningChance = ((totalWon / iterations) * 100).toFixed(2);
   return parseFloat(winningChance);
 };
@@ -48,7 +48,12 @@ const _play = (iterations, switchDoor = false) => {
  * @return {number} Winning chance
  */
 const montyHallSimulator = (simulations = 1, switchDoor = false) => {
-  return _play(simulations, switchDoor);
+  return play(simulations, switchDoor);
 };
 
-module.exports = montyHallSimulator;
+module.exports = {
+  random,
+  montyHallGame,
+  play,
+  montyHallSimulator,
+};

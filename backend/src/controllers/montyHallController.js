@@ -1,4 +1,4 @@
-const montyHallSimulator = require("../simulators/montyHall");
+const { montyHallSimulator } = require("../simulators/montyHall");
 
 /**
  * Perform given number of simulations to calculate the final winning chance.
